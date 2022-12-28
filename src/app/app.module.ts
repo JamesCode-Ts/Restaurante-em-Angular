@@ -12,6 +12,12 @@ import { MenuComponent } from './menu/menu.component';
 import {  NavMenuComponent } from './inc/nav-menu';
 import { ServicosComponent } from './servicos/servicos.component';
 import { ContatoComponent } from './contato/contato.component';
+import { ReservaComponent } from './reserva/reserva.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './admin/login/login.component';
+import { UserComponent } from './admin/user/user.component';
 
 
 
@@ -24,6 +30,10 @@ export const appRouters: Routes = [
   {path : 'menu', component : MenuComponent},
   {path : 'servicos', component : ServicosComponent},
   {path : 'contato', component : ContatoComponent},
+  {path : 'reserva', component : ReservaComponent},
+  {path : 'admin/login', component : LoginComponent},
+  {path : 'admin/user', component : UserComponent}
+
 
 ];
 
@@ -39,6 +49,10 @@ export const optionsMask : Partial<IConfig> | (() => Partial<IConfig>) = {};
     NavMenuComponent,
     ServicosComponent,
     ContatoComponent,
+    ReservaComponent,
+    AdminComponent,
+    LoginComponent,
+    UserComponent
    
   ],
   imports: [
@@ -47,7 +61,9 @@ export const optionsMask : Partial<IConfig> | (() => Partial<IConfig>) = {};
     HttpClientModule,
     routes,
     NgbModule,
-    NgxMaskModule.forRoot(optionsMask)
+    NgxMaskModule.forRoot(optionsMask),
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
