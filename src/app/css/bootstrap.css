@@ -9,10 +9,17 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+   height: 100vh;
+
+ 
+  
+
+
 }
 
 body {
   margin: 0;
+  height: 100vh;
 }
 
 article,
@@ -6405,7 +6412,7 @@ button.close {
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
-.modal.fade .modal-dialog {
+.modal .modal-dialog {
   -webkit-transform: translate(0, -25%);
   -ms-transform: translate(0, -25%);
   -o-transform: translate(0, -25%);
@@ -6476,6 +6483,7 @@ button.close {
 .modal-title {
   margin: 0;
   line-height: 1.42857;
+  
 }
 
 .modal-body {

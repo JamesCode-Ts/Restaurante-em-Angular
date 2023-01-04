@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxMaskModule, IConfig} from 'ngx-mask';
 import { MenuComponent } from './menu/menu.component';
 import {  NavMenuComponent } from './inc/nav-menu';
@@ -31,8 +31,9 @@ export const appRouters: Routes = [
   {path : 'servicos', component : ServicosComponent},
   {path : 'contato', component : ContatoComponent},
   {path : 'reserva', component : ReservaComponent},
-  {path : 'admin/login', component : LoginComponent},
-  {path : 'admin/user', component : UserComponent}
+  {path : 'login', component : LoginComponent},
+  {path : 'admin/user', component : UserComponent},
+ 
 
 
 ];
@@ -52,7 +53,7 @@ export const optionsMask : Partial<IConfig> | (() => Partial<IConfig>) = {};
     ReservaComponent,
     AdminComponent,
     LoginComponent,
-    UserComponent
+     UserComponent
    
   ],
   imports: [
@@ -62,6 +63,7 @@ export const optionsMask : Partial<IConfig> | (() => Partial<IConfig>) = {};
     routes,
     NgbModule,
     NgxMaskModule.forRoot(optionsMask),
+
 
 
   ],
