@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { User } from '../model/User';
 import { userService } from '../service-admin/user.service';
@@ -19,27 +20,111 @@ export class UserComponent implements OnInit {
 
   user = new User;
 
-  constructor(private userService : userService) { }
+  users!: User[];
+  p: number = 1; 
+  total!: number;
+  nome!: string;
 
-  ngOnInit(): void {
+  constructor(private userService : userService, private routeActive: ActivatedRoute) { }
 
+ListarUsuario(){
+
+
+}
+
+  ngOnInit() {
+
+    this.userService.buscarUsuario().subscribe(data => {
+      this.users = data.content;
+    })
 
   }
-saveUser(){
+/*
+    let id = this.routeActive.snapshot.paramMap.get('id');
 
-
-  this.userService.salvarContato(this.user).subscribe(data => {
-  this.novo();
+  if(id != null){
+ 
+  this.userService.getUsuario(id).subscribe(data =>{
+ 
+    this.user = data;
+  })
+  }
   
+    */
+
+
+
+
+  saveUser() {
+   
+    if(this.user.id != null && this.user.id.toString().trim != null){ /** Atualizando ou  Editando */
+      this.userService.updateUsuario(this.user).subscribe(data =>{
+        console.info(" User Atualizado: " + data);
+        this.novo();
+      });
+
+    }else{
+      this.userService.salvarUsuario(this.user).subscribe(data =>{ /**Salvando usuario */
+      
     
-  
+     
+    
+      console.info(" Gravou User " + data);
+       
+         
+      });
 
-  })}
+      location.reload();
+
+      
+    }
+    
+    
+}
+
+deleteUsuario(id: Number, index: number) {
+
+  if (confirm('Deseja mesmo remover?')) {
+
+    this.userService.deletarUsuario(id).subscribe(data => {
+      //console.log("Retorno do método delete : " + data);
+
+      this.users.splice(index, 1); /*Remover da tela*/ 
+     
+      // this.userService.getStudentList().subscribe(data => {
+      //  this.students = data;
+     // });
+
+});
+}
+}
+
+/*
+carregarPagina(pagina: number) {
 
 
+  if (this.nome !== '') {
+    this.userService.consultarUserPoPage(this.nome, (pagina - 1)).subscribe(data => {
+      this.users = data.content;
+      this.total = data.totalElements;
+    });
+  }
+  else {
+    this.userService.getUserListPage(pagina - 1).subscribe(data => {
+      this.users = data.content;
+      this.total = data.totalElements;
+    });
+  }
+
+}
+*/
   novo(){
 
     this.user = new User;
   }
 
 }
+function ngOnInit(): ((error: any) => void) | undefined {
+  throw new Error('Function not implemented.');
+}
+

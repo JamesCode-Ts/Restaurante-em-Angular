@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './admin/login/login.component';
 import { UserComponent } from './admin/user/user.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -33,7 +34,8 @@ export const appRouters: Routes = [
   {path : 'reserva', component : ReservaComponent},
   {path : 'login', component : LoginComponent},
   {path : 'admin/user', component : UserComponent},
- 
+  {path : 'admin/user/:id', component : UserComponent},
+
 
 
 ];
@@ -63,6 +65,7 @@ export const optionsMask : Partial<IConfig> | (() => Partial<IConfig>) = {};
     routes,
     NgbModule,
     NgxMaskModule.forRoot(optionsMask),
+    NgxPaginationModule
 
 
 
