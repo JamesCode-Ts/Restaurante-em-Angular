@@ -37,13 +37,13 @@ export class userService {
 
       getUsuario(id: string) : Observable<any>{
 
-        return this.http.get<any>(AppConstants.getbaseUrlPath + 'adm/' + id)
+        return this.http.get<any>(AppConstants.getbaseUrlPath + 'adm/' + id) 
       
       }
 
       updateUsuario(user: User) : Observable<any>{
 
-        return this.http.put<any>(AppConstants.getbaseUrlPath + 'adm/', user);
+        return this.http.put<any>(AppConstants.getbaseUrlPath + 'adm/', user, this.httpOptions);
       
       }
 

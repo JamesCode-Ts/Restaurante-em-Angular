@@ -27,10 +27,6 @@ export class UserComponent implements OnInit {
 
   constructor(private userService : userService, private routeActive: ActivatedRoute) { }
 
-ListarUsuario(){
-
-
-}
 
   ngOnInit() {
 
@@ -38,19 +34,19 @@ ListarUsuario(){
       this.users = data.content;
     })
 
-  }
-/*
     let id = this.routeActive.snapshot.paramMap.get('id');
 
-  if(id != null){
- 
-  this.userService.getUsuario(id).subscribe(data =>{
- 
-    this.user = data;
-  })
+    if(id != null){
+   
+    this.userService.getUsuario(id).subscribe(data =>{
+   
+      this.user = data;
+    })
+    }
+    
   }
-  
-    */
+
+ 
 
 
 
@@ -61,6 +57,7 @@ ListarUsuario(){
       this.userService.updateUsuario(this.user).subscribe(data =>{
         console.info(" User Atualizado: " + data);
         this.novo();
+        location.reload();
       });
 
     }else{
