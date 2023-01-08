@@ -8,5 +8,6 @@ export class Menu{
     price!: String;
     photo!: String;
     register!: String;
+    quantDeMenu!: Number ;
 
 }

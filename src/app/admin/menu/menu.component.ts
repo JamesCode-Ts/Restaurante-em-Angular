@@ -20,6 +20,8 @@ export class MenuAdminComponent implements OnInit {
 
   menus!: Menu[];
 
+
+
   constructor(private menuAdminService : menuAdminService, private routeActive: ActivatedRoute) { }
 
   ngOnInit() {
@@ -35,7 +37,7 @@ export class MenuAdminComponent implements OnInit {
       if (id != null){
 
         this.menuAdminService.getMenu(id).subscribe(data =>{
-          
+
           this.menu = data;
         })
 
@@ -58,15 +60,14 @@ export class MenuAdminComponent implements OnInit {
     }else{
       this.menuAdminService.salvarMenu(this.menu).subscribe(data =>{ /**Salvando usuario */
       
-    
      
+     this.menus.push(data);
     
       console.info(" Gravou User " + data);
        
          
       });
 
-      location.reload();
 
       
     }

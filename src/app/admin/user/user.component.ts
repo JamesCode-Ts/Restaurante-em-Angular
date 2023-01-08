@@ -19,19 +19,32 @@ import { userService } from '../service-admin/user.service';
 export class UserComponent implements OnInit {
 
   user = new User;
-
+ 
   users!: User[];
   p: number = 1; 
   total!: number;
   nome!: string;
+  quantDeId!: number ;
+ 
+ 
 
-  constructor(private userService : userService, private routeActive: ActivatedRoute) { }
+  constructor(private userService : userService, private routeActive: ActivatedRoute) { 
+
+   
+  }
 
 
   ngOnInit() {
 
     this.userService.buscarUsuario().subscribe(data => {
       this.users = data.content;
+
+
+   
+      this.quantDeId = data.size;
+    
+      
+      console.log(this.quantDeId);
     })
 
     let id = this.routeActive.snapshot.paramMap.get('id');
@@ -41,16 +54,17 @@ export class UserComponent implements OnInit {
     this.userService.getUsuario(id).subscribe(data =>{
    
       this.user = data;
+    
+
     })
     }
-    
   }
 
  
 
+  
 
-
-
+  
   saveUser() {
    
     if(this.user.id != null && this.user.id.toString().trim != null){ /** Atualizando ou  Editando */
@@ -63,15 +77,17 @@ export class UserComponent implements OnInit {
     }else{
       this.userService.salvarUsuario(this.user).subscribe(data =>{ /**Salvando usuario */
       
-    
-     
+      /** Adiciona o user na hora sem precisar da refresh */
+      this.users.push(data);
+      
+      
+
+
     
       console.info(" Gravou User " + data);
        
          
       });
-
-      location.reload();
 
       
     }
@@ -87,6 +103,8 @@ deleteUsuario(id: Number, index: number) {
       //console.log("Retorno do método delete : " + data);
 
       this.users.splice(index, 1); /*Remover da tela*/ 
+         
+    
      
       // this.userService.getStudentList().subscribe(data => {
       //  this.students = data;

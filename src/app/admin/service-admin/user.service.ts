@@ -59,5 +59,9 @@ export class userService {
         return this.http.get<any>(AppConstants.getbaseUrlPath + 'adm/'+ 'page/' + pagina);
        }
     
+       getQntDeUser(): Observable<any>{
+
+        return this.http.get<any>(AppConstants.getbaseUrlPath + 'adm/qnt');
+       }
 
 }

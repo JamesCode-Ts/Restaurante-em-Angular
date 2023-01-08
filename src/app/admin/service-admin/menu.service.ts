@@ -52,5 +52,9 @@ import { Menu } from '../model/Menu';
         return this.http.put<any>(AppConstants.getbaseUrlPath + 'menu/', menu, this.httpOptions);
       
       }
+      getQntDeMenu(): Observable<any>{
+
+        return this.http.get<any>(AppConstants.getbaseUrlPath + 'menu/qnt');
+       }
 
   }

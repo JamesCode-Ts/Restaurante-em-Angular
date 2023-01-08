@@ -20,6 +20,8 @@ import { LoginComponent } from './admin/login/login.component';
 import { UserComponent } from './admin/user/user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MenuAdminComponent } from './admin/menu/menu.component';
+import { IndexComponent } from './admin/index/index.component';
+import { ContatoAdminComponent } from './admin/contato/contato.component';
 
 
 
@@ -38,6 +40,9 @@ export const appRouters: Routes = [
   {path : 'admin/user/:id', component : UserComponent},
   {path : 'admin/menu', component : MenuAdminComponent},
   {path : 'admin/menu/:id', component : MenuAdminComponent},
+  {path : 'admin/index', component : IndexComponent},
+  {path : 'admin/contato', component : ContatoAdminComponent},
+
 
 
 
@@ -59,7 +64,9 @@ export const optionsMask : Partial<IConfig> | (() => Partial<IConfig>) = {};
     AdminComponent,
     LoginComponent,
      UserComponent,
-     MenuAdminComponent
+     MenuAdminComponent,
+     IndexComponent,
+     ContatoAdminComponent
    
   ],
   imports: [

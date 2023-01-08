@@ -7,5 +7,6 @@ export class User {
     login!: String;
     nome!: String;
     senha!: String;
+    quantDeUser!: Number ;
 
 }
