@@ -36,6 +36,10 @@ export class ContatoAdminService {
       }
       
       
-      
+      getQntDeContato(): Observable<any>{
+
+        return this.http.get<any>(AppConstants.getbaseUrlPath + 'contato/qnt');
+       }
+
     
 }

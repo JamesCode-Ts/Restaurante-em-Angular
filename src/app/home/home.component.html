@@ -114,13 +114,13 @@
 													<div class="row form-group">
 														<div class="col-md-12">
 															<label for="inputDate">Data</label>
-															<input type="text" mask="00/00/0000"  [(ngModel)]="reserva.dataDaCadastro"  #dataValidate="ngModel"  id="dataDaCadastro" name="dataDaCadastro" class="form-control">
+															<input type="text" [dropSpecialCharacters]="false" mask="00/00/0000"  [(ngModel)]="reserva.dataDaCadastro"  #dataValidate="ngModel"  id="dataDaCadastro" name="dataDaCadastro" class="form-control">
 														</div>
 													</div>
 													<div class="row form-group">
 														<div class="col-md-12">
 															<label for="inputTime">Hora</label>
-															<input type="text" mask="00:00:00" [(ngModel)]="reserva.hora" id="hora"  #horaValidate="ngModel"  name="hora" class="form-control">
+															<input type="text" [dropSpecialCharacters]="false"  mask="00:00:00" [(ngModel)]="reserva.hora" id="hora"  #horaValidate="ngModel"  name="hora" class="form-control">
 														</div>
 													</div>
 

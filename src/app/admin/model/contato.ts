@@ -4,5 +4,7 @@ export class Contato{
     nome!: String
     email!: String
     mensagem!: String
+    quantDeContato!: Number ;
+
 
 }

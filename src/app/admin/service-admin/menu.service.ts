@@ -57,4 +57,6 @@ import { Menu } from '../model/Menu';
         return this.http.get<any>(AppConstants.getbaseUrlPath + 'menu/qnt');
        }
 
+       
+
   }

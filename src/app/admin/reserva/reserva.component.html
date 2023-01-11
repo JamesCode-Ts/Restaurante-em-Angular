@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang=pt-BR>
 
 <head>
   <meta charset="utf-8">
@@ -19,9 +19,8 @@
     html, body {
       height: 100vh;
   }
-
-</style>
-
+  </style>
+  
 
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
@@ -65,7 +64,6 @@
                     <small>fulano@hcode.com.br</small>
                   </p>
                 </li>
-
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
@@ -104,18 +102,18 @@
           <li class="header">MENU</li>
           <!-- Optionally, you can add icons to the links -->
           <li>
-            <a href="admin/index">
+            <a href="index.html">
               <i class="fa fa-home"></i>
               <span>Tela Inicial</span>
             </a>
           </li>
-          <li class="active">
+          <li>
             <a href="menus.html">
               <i class="fa fa-cutlery"></i>
               <span>Menu</span>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="reservations.html">
               <i class="fa fa-calendar-check-o"></i>
               <span>Reservas</span>
@@ -128,7 +126,7 @@
             </a>
           </li>
           <li>
-            <a href="admin/user">
+            <a href="users.html">
               <i class="fa fa-users"></i>
               <span>Usuários</span>
             </a>
@@ -150,11 +148,11 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          Menu
+          Reservas
         </h1>
         <ol class="breadcrumb">
           <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-          <li class="active">Menu</li>
+          <li class="active">Reservas</li>
         </ol>
       </section>
 
@@ -165,37 +163,75 @@
           <div class="box-header">
             <h3 class="box-title">Lista</h3>
             <a href="#" class="btn btn-xs pull-right btn-success" data-toggle="modal" data-target="#modal-create"><i
-                class="fa fa-plus"></i> Novo</a>
+                class="fa fa-plus"></i>
+              Novo</a>
+          </div>
+          <div class="box-header" style="height:44px;">
+
+            <div class="box-tools">
+              <form action="">
+                <div class="form-group" style="width: 182px; float: left">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="date" name="start" class="form-control unstyled" value="<%= date.start %>">
+                  </div>
+                </div>
+                <div class="form-group" style="width: 182px; float: left">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      até
+                    </div>
+                    <input type="date" name="end" class="form-control unstyled" value="<%= date.end %>">
+                  </div>
+                </div>
+                <div class="form-group" style="float: left; margin-left: 7px;">
+                  <button type="submit" class="btn btn-default">OK</button>
+                </div>
+              </form>
+            </div>
           </div>
           <!-- /.box-header -->
           <div class="box-body no-padding">
-            <table *ngFor="let menu of menus; let i = index" class="table table-striped table-hover">
+            <table *ngFor="let reserva of reservas" class="table table-striped table-hover">
               <thead>
                 <tr>
                   <th style="width: 10px">#</th>
-                  <th>Foto</th>
-                  <th>Título</th>
-                  <th>Descrição</th>
-                  <th>Preço</th>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Pessoas</th>
+                  <th>Data</th>
+                  <th>Hora</th>
                   <th style="min-width: 134px;">Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>{{menu.id}}</td>
-                  <td><img src="{{menu.photo}}" alt="" style="height: 18px;"></td>
-                  <td>{{menu.title}}</td>
-                  <td>{{menu.description}}.</td>
-                  <td>{{menu.price}}</td>
-                  <td><button type="button" [routerLink]="['/admin/menu', menu.id]"  routerLinkActive="router-link-active" class="btn btn-xs btn-info btn-update" data-toggle="modal" data-target="#modal-update"><i
-                        class="fa fa-pencil"  ></i> Editar</button>&nbsp;
-                        <button type="button" class="btn btn-xs btn-danger btn-delete" (click)="deleteMenu(menu.id, i)"><i
-                        class="fa fa-trash" ></i> Excluir</button></td>
+                  <td>{{reserva.id}}</td>
+                  <td>{{reserva.nome}}</td>
+                  <td>{{reserva.email}}</td>
+                  <td>{{reserva.pessoas}}</td>
+                  <td>{{reserva.dataDaCadastro}}</td>
+                  <td>{{reserva.hora}}</td>
+                  <td><button type="button" class="btn btn-xs btn-info btn-update" data-toggle="modal" data-target="#modal-update"><i
+                        class="fa fa-pencil"></i> Editar</button>&nbsp;<button type="button" class="btn btn-xs btn-danger btn-delete"><i
+                        class="fa fa-trash"></i> Excluir</button></td>
                 </tr>
               </tbody>
             </table>
           </div>
           <!-- /.box-body -->
+          <div class="box-footer clearfix">
+            <ul class="pagination pagination-sm no-margin pull-right">
+              <li class="active"><a href="#">«</a></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">»</a></li>
+            </ul>
+          </div>
+          <!-- /.box-footer -->
         </div>
 
       </section>
@@ -211,31 +247,43 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h4 class="modal-title">Novo Menu</h4>
+              <h4 class="modal-title">Nova Reserva</h4>
             </div>
-            <div class="modal-body">
+            <div  class="modal-body">
               <div class="form-group">
-                <label for="inputTitleCreate">Título</label>
-                <input type="text" class="form-control"  [(ngModel)]="menu.title"  #titleValidate="ngModel"  id="title" name="title">
+                <label for="inputNameCreate">Nome</label>
+                <input type="text" class="form-control" [(ngModel)]="reserva.nome"  #nomeValidate="ngModel"  id="nome" name="nome">
               </div>
               <div class="form-group">
-                <label for="inputDescriptionCreate">Descrição</label>
-                <textarea class="form-control" [(ngModel)]="menu.description"  #descriptionValidate="ngModel"  id="description" name="description"></textarea>
+                <label for="inputEmailCreate">E-mail</label>
+                <input type="email" class="form-control" [(ngModel)]="reserva.email"  #emailValidate="ngModel" id="email" name="email">
               </div>
               <div class="form-group">
-                <label for="inputPriceCreate">Preço</label>
-                <input type="number" class="form-control" [(ngModel)]="menu.price"  #priceValidate="ngModel"  id="price" name="price">
+                <label for="inputPeopleCreate">Pessoas</label>
+                <select id="inputPeopleCreate" name="people" class="form-control">
+                  <option value=""> -- selecione -- </option>
+                  <option   [ngValue]="1">1</option>
+                  <option   [ngValue]="2">2</option>
+                  <option   [ngValue]="3">3</option>
+                  <option   [ngValue]="4">4</option>
+                  <option   [ngValue]="5">5+</option>
+                </select>
               </div>
               <div class="form-group">
-                <label id=customFileLabel for="inputPhotoCreate">Foto</label>
-                <img style="max-width: 128px; max-height: 128px; display: block;" src="../dist/img/boxed-bg.jpg">
-                <input type="file" (change)="onChange($event)" class="form-control"  id="photo" name="photo">
-                
+                <label for="inputDateCreate">Data</label>
+                <input type="date"  [(ngModel)]="reserva.dataDaCadastro" 
+                #dataValidate="ngModel"  id="dataDaCadastro" name="dataDaCadastro"  class="form-control" >
+              </div>
+
+             
+              <div class="form-group">
+                <label for="inputTimeCreate">Hora</label>
+                <input type="time" [(ngModel)]="reserva.hora" id="hora"  #horaValidate="ngModel"  name="hora" class="form-control">
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-              <button type="submit" (click)="saveMenu()" class="btn btn-success">Salvar</button>
+              <button type="submit" (click)="saveReserva()" class="btn btn-success">Salvar</button>
             </div>
           </form>
         </div>
@@ -253,30 +301,40 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h4 class="modal-title">Editar Menu</h4>
+              <h4 class="modal-title">Editar Reserva</h4>
             </div>
             <div class="modal-body">
               <div class="form-group">
-                <label for="inputTitleUpdate">Título</label>
-                <input type="text" class="form-control"  [(ngModel)]="menu.title"  #titleValidate="ngModel"  id="title" name="title">
+                <label for="inputNameUpdate">Nome</label>
+                <input type="text" class="form-control" id="inputNameUpdate" name="name">
               </div>
               <div class="form-group">
-                <label for="inputDescriptionUpdate">Descrição</label>
-                <textarea class="form-control" [(ngModel)]="menu.description"  #descriptionValidate="ngModel"  id="description" name="description"></textarea>
+                <label for="inputEmailUpdate">E-mail</label>
+                <input type="email" class="form-control" id="inputEmailUpdate" name="email">
               </div>
               <div class="form-group">
-                <label for="inputPriceUpdate">Preço</label>
-                <input type="number" class="form-control" [(ngModel)]="menu.price"  #priceValidate="ngModel"  id="price" name="price">
+                <label for="inputPeopleUpdate">Pessoas</label>
+                <select id="inputPeopleUpdate" name="people" class="form-control">
+                  <option value=""> -- selecione -- </option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5+</option>
+                </select>
               </div>
               <div class="form-group">
-                <label for="inputPhotoUpdate">Foto</label>
-                <img style="max-width: 128px; max-height: 128px; display: block;" src="dist/img/boxed-bg.jpg">
-                <input type="file" class="form-control" [(ngModel)]="menu.photo"  #photoValidate="ngModel"  id="photo" name="photo">
+                <label for="inputDateUpdate">Data</label>
+                <input type="date" id="inputDateUpdate" name="date" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputTimeUpdate">Hora</label>
+                <input type="time" id="inputTimeUpdate" name="time" class="form-control">
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-              <button type="submit"(click)="saveMenu()" class="btn btn-info">Salvar</button>
+              <button type="submit" class="btn btn-info">Salvar</button>
             </div>
           </form>
         </div>
@@ -296,21 +354,20 @@
     </footer>
 
   </div>
-
-  <!-- jQuery 3 -->
-  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <!-- Bootstrap 3.3.7 -->
-  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- PACE -->
-  <script src="../bower_components/PACE/pace.min.js"></script>
-  <!-- SlimScroll -->
-  <script src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-  <!-- FastClick -->
-  <script src="../bower_components/fastclick/lib/fastclick.js"></script>
-  <!-- AdminLTE App -->
-  <script src="../dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="../dist/js/demo.js"></script>
+<!-- jQuery 3 -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- PACE -->
+<script src="../bower_components/PACE/pace.min.js"></script>
+<!-- SlimScroll -->
+<script src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
 
   <!-- page script -->
   <script type="text/javascript">
@@ -326,8 +383,6 @@
       })
     })
   </script>
-
-
 
 </body>
 

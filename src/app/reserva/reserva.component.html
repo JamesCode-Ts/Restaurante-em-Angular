@@ -117,12 +117,11 @@
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <label for="dataDaCadastro">Data</label>
-                                <input name="dataDaCadastro" type="text"  class="form-control" placeholder="dd/mm/yyyy"
-                              ngbDatepicker #dataDaCadastro="ngbDatepicker" [(ngModel)]="reserva.dataDaCadastro" 
-                                #dataDaCadastroValidate="ngModel" id="dataDaCadastro"  required="true"
-                              >
+                                <input name="dataDaCadastro" type="text"  [dropSpecialCharacters]="false" mask="00/00/0000" 
+								 [(ngModel)]="reserva.dataDaCadastro" 
+								  #dataValidate="ngModel"  id="dataDaCadastro" name="dataDaCadastro" class="form-control">
                               <div class="input-group-append">
-                                <button class="btn btn-primary" (click)="dataDaCadastro.toggle()" type="button"></button>
+                                
                               </div>
                             </div>                           
                          </div>
@@ -131,7 +130,7 @@
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <label for="inputTime">Hora</label>
-                                <input type="text" mask="00:00:00" [(ngModel)]="reserva.hora" id="hora"  #horaValidate="ngModel"  name="hora" class="form-control">
+                                <input type="text" [dropSpecialCharacters]="false"  mask="00:00:00" [(ngModel)]="reserva.hora" id="hora"  #horaValidate="ngModel"  name="hora" class="form-control">
                             </div>
                         </div>
 

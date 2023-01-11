@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Menu } from '../model/Menu';
 import { menuAdminService } from '../service-admin/menu.service';
+import * as _ from 'lodash';
+import { toBase64String } from '@angular/compiler/src/output/source_map';
+
 
 @Component({
   selector: 'app-menu',
@@ -16,14 +19,25 @@ import { menuAdminService } from '../service-admin/menu.service';
 })
 export class MenuAdminComponent implements OnInit {
 
+  imageError!: string;
+  isImageSaved!: boolean;
+  cardImageBase64!: string;
+
+  base64data!:string;
+
   menu = new Menu;
 
   menus!: Menu[];
 
+  
 
 
-  constructor(private menuAdminService : menuAdminService, private routeActive: ActivatedRoute) { }
 
+  constructor(private menuAdminService : menuAdminService, private routeActive: ActivatedRoute){
+
+
+   
+  }
   ngOnInit() {
 
     this.menuAdminService.buscarMenu().subscribe(data =>{
@@ -43,10 +57,54 @@ export class MenuAdminComponent implements OnInit {
 
 
       }
+      
+
+      
 }
 
 
 
+imageShow: any = '';
+    onChange(event: any){
+
+        if (event.target.files && event.target.files[0]) {
+      
+            
+         
+            var reader = new FileReader();
+            reader.readAsDataURL(event.target.files[0]);
+            
+            reader.onload = () => {
+            
+              this.imageShow = reader.result;
+
+              console.log(this.imageShow);
+
+              this.menu.photo = this.imageShow;
+              /** Utiliza o salvamento de photo para a mesma instancia de objeto,
+               * não precisando usar o ngModel no input no html.
+               */
+              this.menuAdminService.salvarMenu(this.menu).subscribe(data =>{
+
+                console.log("photo salva!",data)
+               })
+              }
+        
+            
+           //   this.menu.photo = base64data;
+           
+
+            }
+         
+            
+            
+          
+            
+
+     
+
+
+}
 
   saveMenu() {
    
@@ -58,7 +116,10 @@ export class MenuAdminComponent implements OnInit {
       });
 
     }else{
+      
       this.menuAdminService.salvarMenu(this.menu).subscribe(data =>{ /**Salvando usuario */
+
+      
       
      
      this.menus.push(data);
@@ -68,6 +129,11 @@ export class MenuAdminComponent implements OnInit {
          
       });
 
+      
+  
+
+   
+    
 
       
     }

@@ -22,6 +22,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MenuAdminComponent } from './admin/menu/menu.component';
 import { IndexComponent } from './admin/index/index.component';
 import { ContatoAdminComponent } from './admin/contato/contato.component';
+import { ReservaAdminComponent } from './admin/reserva/reserva.component';
 
 
 
@@ -41,7 +42,9 @@ export const appRouters: Routes = [
   {path : 'admin/menu', component : MenuAdminComponent},
   {path : 'admin/menu/:id', component : MenuAdminComponent},
   {path : 'admin/index', component : IndexComponent},
-  {path : 'admin/contato', component : ContatoAdminComponent},
+  {path : 'admin/contatos', component : ContatoAdminComponent},
+  {path : 'admin/reservas', component : ReservaAdminComponent},
+
 
 
 
@@ -66,7 +69,8 @@ export const optionsMask : Partial<IConfig> | (() => Partial<IConfig>) = {};
      UserComponent,
      MenuAdminComponent,
      IndexComponent,
-     ContatoAdminComponent
+     ContatoAdminComponent,
+     ReservaAdminComponent
    
   ],
   imports: [
