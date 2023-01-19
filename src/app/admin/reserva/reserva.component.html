@@ -96,48 +96,47 @@
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
-
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">MENU</li>
-          <!-- Optionally, you can add icons to the links -->
-          <li>
-            <a href="index.html">
-              <i class="fa fa-home"></i>
-              <span>Tela Inicial</span>
-            </a>
-          </li>
-          <li>
-            <a href="menus.html">
-              <i class="fa fa-cutlery"></i>
-              <span>Menu</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="reservations.html">
-              <i class="fa fa-calendar-check-o"></i>
-              <span>Reservas</span>
-            </a>
-          </li>
-          <li>
-            <a href="contacts.html">
-              <i class="fa fa-comments"></i>
-              <span>Contatos</span>
-            </a>
-          </li>
-          <li>
-            <a href="users.html">
-              <i class="fa fa-users"></i>
-              <span>Usuários</span>
-            </a>
-          </li>
-          <li>
-            <a href="emails.html">
-              <i class="fa fa-envelope"></i>
-              <span>E-mails</span>
-            </a>
-          </li>
-        </ul>
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MENU</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li>
+          <a href="admin/index">
+            <i class="fa fa-home"></i>
+            <span>Tela Inicial</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/menu">
+            <i class="fa fa-cutlery"></i>
+            <span>Menu</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/reservas">
+            <i class="fa fa-calendar-check-o"></i>
+            <span>Reservas</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/contatos">
+            <i class="fa fa-comments"></i>
+            <span>Contatos</span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="admin/user">
+            <i class="fa fa-users"></i>
+            <span>Usuários</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/emails">
+            <i class="fa fa-envelope"></i>
+            <span>E-mails</span>
+          </a>
+        </li>
+      </ul>
         <!-- /.sidebar-menu -->
       </section>
       <!-- /.sidebar -->
@@ -168,7 +167,7 @@
           </div>
           <div class="box-header" style="height:44px;">
 
-            <div class="box-tools">
+           <!-- <div class="box-tools">
               <form action="">
                 <div class="form-group" style="width: 182px; float: left">
                   <div class="input-group">
@@ -191,10 +190,11 @@
                 </div>
               </form>
             </div>
+            -->
           </div>
           <!-- /.box-header -->
           <div class="box-body no-padding">
-            <table *ngFor="let reserva of reservas" class="table table-striped table-hover">
+            <table *ngFor="let reserva of reservas  | paginate: {itemsPerPage:5, currentPage: p, totalItems : total};" class="table table-striped table-hover">
               <thead>
                 <tr>
                   <th style="width: 10px">#</th>
@@ -222,15 +222,11 @@
             </table>
           </div>
           <!-- /.box-body -->
-          <div class="box-footer clearfix">
-            <ul class="pagination pagination-sm no-margin pull-right">
-              <li class="active"><a href="#">«</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">»</a></li>
-            </ul>
-          </div>
+          <div class="text-right">
+            <pagination-controls (pageChange)="carregarPagina(p = $event);"
+            previousLabel = "Voltar" nextLabel = "Avançar"  ></pagination-controls>
+            
+            </div>
           <!-- /.box-footer -->
         </div>
 
@@ -239,7 +235,7 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <div class="modal" id="modal-create">
+    <div class="modal fade" id="modal-create">
       <div class="modal-dialog">
         <div class="modal-content" style="border-top: 3px solid #00a65a;">
           <form method="post">
@@ -260,8 +256,8 @@
               </div>
               <div class="form-group">
                 <label for="inputPeopleCreate">Pessoas</label>
-                <select id="inputPeopleCreate" name="people" class="form-control">
-                  <option value=""> -- selecione -- </option>
+              	<select [(ngModel)]="reserva.pessoas" id="pessoas" name="pessoas" id="pessoas" class="form-control" >
+                  <option> -- selecione -- </option>
                   <option   [ngValue]="1">1</option>
                   <option   [ngValue]="2">2</option>
                   <option   [ngValue]="3">3</option>
@@ -292,7 +288,7 @@
       <!-- /.modal-dialog -->
     </div>
 
-    <div class="modal" id="modal-update">
+    <div class="modal fade" id="modal-update">
       <div class="modal-dialog">
         <div class="modal-content" style="border-top: 3px solid #00c0ef;">
           <form method="post">

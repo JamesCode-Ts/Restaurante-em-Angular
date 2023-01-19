@@ -23,6 +23,8 @@ import { MenuAdminComponent } from './admin/menu/menu.component';
 import { IndexComponent } from './admin/index/index.component';
 import { ContatoAdminComponent } from './admin/contato/contato.component';
 import { ReservaAdminComponent } from './admin/reserva/reserva.component';
+import { NavMenuAdmin } from './admin/inc/nav-menuAdmin';
+import { GuardiaoGuard } from './admin/service-admin/guardiao.guard';
 
 
 
@@ -31,19 +33,20 @@ import { ReservaAdminComponent } from './admin/reserva/reserva.component';
 
 export const appRouters: Routes = [
 
-  {path : 'home', component : HomeComponent},
-  {path : 'menu', component : MenuComponent},
+  {path : 'home', component : HomeComponent,},
+  {path : 'menu', component : MenuComponent, },
   {path : 'servicos', component : ServicosComponent},
   {path : 'contato', component : ContatoComponent},
   {path : 'reserva', component : ReservaComponent},
-  {path : 'login', component : LoginComponent},
-  {path : 'admin/user', component : UserComponent},
-  {path : 'admin/user/:id', component : UserComponent},
-  {path : 'admin/menu', component : MenuAdminComponent},
-  {path : 'admin/menu/:id', component : MenuAdminComponent},
-  {path : 'admin/index', component : IndexComponent},
-  {path : 'admin/contatos', component : ContatoAdminComponent},
-  {path : 'admin/reservas', component : ReservaAdminComponent},
+  {path : 'admin/login', component : LoginComponent},
+  {path: '', component : LoginComponent},
+  {path : 'admin/user', component : UserComponent, canActivate: [GuardiaoGuard]},
+  {path : 'admin/user/:id', component : UserComponent, canActivate: [GuardiaoGuard]},
+  {path : 'admin/menu', component : MenuAdminComponent, canActivate: [GuardiaoGuard]},
+  {path : 'admin/menu/:id', component : MenuAdminComponent, canActivate: [GuardiaoGuard]},
+  {path : 'admin/index', component : IndexComponent, canActivate: [GuardiaoGuard]},
+  {path : 'admin/contatos', component : ContatoAdminComponent, canActivate: [GuardiaoGuard]},
+  {path : 'admin/reservas', component : ReservaAdminComponent, canActivate: [GuardiaoGuard]},
 
 
 
@@ -70,7 +73,9 @@ export const optionsMask : Partial<IConfig> | (() => Partial<IConfig>) = {};
      MenuAdminComponent,
      IndexComponent,
      ContatoAdminComponent,
-     ReservaAdminComponent
+     ReservaAdminComponent,
+     NavMenuAdmin
+
    
   ],
   imports: [

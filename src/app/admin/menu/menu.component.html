@@ -15,34 +15,32 @@
   <meta name="theme-color" content="#3c8dbc">
 </head>
 
-<style>
-    html, body {
-      height: 100vh;
-  }
-
-</style>
 
 
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
 
+   
     <!-- Main Header -->
-    <header class="main-header">
+    <header class="main-header" style="background-color:#242629 ; height: 60px;" >
 
       <!-- Logo -->
       <a href="index2.html" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini">HCODE</span>
+        <span class="logo-mini">Admin</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">HCODE</span>
+        <span class="logo-lg" >Admin</span>
       </a>
 
       <!-- Header Navbar -->
       <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <a href="#" class="sidebar-toggle"   data-toggle="push-menu" role="button">
           <span class="sr-only">Toggle navigation</span>
+
         </a>
+
+    
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
@@ -72,7 +70,7 @@
                     <a href="#" class="btn btn-default btn-flat">Perfil</a>
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Sair</a>
+                    <a href="#" (click)="sair()" class="btn btn-default btn-flat">Sair</a>
                   </div>
                 </li>
               </ul>
@@ -81,9 +79,11 @@
         </div>
       </nav>
     </header>
+    
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
 
+    
       <!-- sidebar: style can be found in sidebar.less -->
       <section class="sidebar">
 
@@ -99,49 +99,50 @@
           </div>
         </div>
 
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">MENU</li>
-          <!-- Optionally, you can add icons to the links -->
-          <li>
-            <a href="admin/index">
-              <i class="fa fa-home"></i>
-              <span>Tela Inicial</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="menus.html">
-              <i class="fa fa-cutlery"></i>
-              <span>Menu</span>
-            </a>
-          </li>
-          <li>
-            <a href="reservations.html">
-              <i class="fa fa-calendar-check-o"></i>
-              <span>Reservas</span>
-            </a>
-          </li>
-          <li>
-            <a href="contacts.html">
-              <i class="fa fa-comments"></i>
-              <span>Contatos</span>
-            </a>
-          </li>
-          <li>
-            <a href="admin/user">
-              <i class="fa fa-users"></i>
-              <span>Usuários</span>
-            </a>
-          </li>
-          <li>
-            <a href="emails.html">
-              <i class="fa fa-envelope"></i>
-              <span>E-mails</span>
-            </a>
-          </li>
-        </ul>
+            <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MENU</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li>
+          <a href="admin/index">
+            <i class="fa fa-home"></i>
+            <span>Tela Inicial</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/menu">
+            <i class="fa fa-cutlery"></i>
+            <span>Menu</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/reservas">
+            <i class="fa fa-calendar-check-o"></i>
+            <span>Reservas</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/contatos">
+            <i class="fa fa-comments"></i>
+            <span>Contatos</span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="admin/user">
+            <i class="fa fa-users"></i>
+            <span>Usuários</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin/emails">
+            <i class="fa fa-envelope"></i>
+            <span>E-mails</span>
+          </a>
+        </li>
+      </ul>
         <!-- /.sidebar-menu -->
       </section>
+
       <!-- /.sidebar -->
     </aside>
 
@@ -183,7 +184,7 @@
               <tbody>
                 <tr>
                   <td>{{menu.id}}</td>
-                  <td><img src="{{menu.photo}}" alt="" style="height: 18px;"></td>
+                  <td><img src="{{menu.photo}}" alt="" style="height:30px; width: 40px; "></td>
                   <td>{{menu.title}}</td>
                   <td>{{menu.description}}.</td>
                   <td>{{menu.price}}</td>
@@ -203,7 +204,7 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <div class="modal" id="modal-create">
+    <div class="modal fade" id="modal-create">
       <div class="modal-dialog">
         <div class="modal-content" style="border-top: 3px solid #00a65a;">
           <form method="post">
@@ -244,7 +245,7 @@
       <!-- /.modal-dialog -->
     </div>
 
-    <div class="modal" id="modal-update">
+    <div class="modal fade" id="modal-update">
       <div class="modal-dialog">
         <div class="modal-content" style="border-top: 3px solid #00c0ef;">
           <form method="post">
@@ -324,7 +325,17 @@
           $('.ajax-content').html('<hr>Ajax Request Completed !')
         }
       })
-    })
+    });
+
+
+  //  var sidebar = document.querySelector(".sidebar-toggle")
+
+  //  sidebar.addEventListener("click", function(){
+
+  //   document.querySelector(".pace-done skin-blue sidebar-mini").classList.toggle(".sidebar-collapse")
+
+ //   })
+  
   </script>
 
 

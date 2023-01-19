@@ -16,9 +16,10 @@ import { DatePipe } from '@angular/common';
 })
 export class ReservaAdminComponent implements OnInit {
 
+  p: number = 1; 
+  total!: number;
  
- 
-
+  nome! : String;
   reserva = new Reserva;
 
   reservas!: Reserva[]
@@ -65,6 +66,18 @@ export class ReservaAdminComponent implements OnInit {
       
     }
     
+}
+
+carregarPagina(pagina: number) {
+
+
+
+    this.reservaAdminService.getReservaListPage(pagina - 1).subscribe(data => {
+      this.reservas = data.content;
+      this.total = data.totalElements;
+    });
+  
+
 }
 
 novo(){

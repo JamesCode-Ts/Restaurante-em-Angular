@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { User } from '../model/User';
 import { userService } from '../service-admin/user.service';
@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
  
  
 
-  constructor(private userService : userService, private routeActive: ActivatedRoute) { 
+  constructor(private userService : userService, private routeActive: ActivatedRoute, private router: Router) { 
 
    
   }
@@ -36,16 +36,11 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
 
-    this.userService.buscarUsuario().subscribe(data => {
-      this.users = data.content;
+    if (localStorage.getItem('token') == null) {
+      this.router.navigate(['admin/login']);
+    }
 
 
-   
-      this.quantDeId = data.size;
-    
-      
-      console.log(this.quantDeId);
-    })
 
     let id = this.routeActive.snapshot.paramMap.get('id');
 
@@ -68,10 +63,13 @@ export class UserComponent implements OnInit {
   saveUser() {
    
     if(this.user.id != null && this.user.id.toString().trim != null){ /** Atualizando ou  Editando */
-      this.userService.updateUsuario(this.user).subscribe(data =>{
+
+    this.userService.updateUsuario(this.user).subscribe(data =>{
         console.info(" User Atualizado: " + data);
-        this.novo();
         location.reload();
+      //  this.users.push(data);
+        this.novo();
+    
       });
 
     }else{
@@ -133,6 +131,12 @@ carregarPagina(pagina: number) {
 
 }
 */
+
+public sair() {
+  localStorage.clear();
+  this.router.navigate(['admin/login']);
+}
+
   novo(){
 
     this.user = new User;

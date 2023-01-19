@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Menu } from '../model/Menu';
 import { menuAdminService } from '../service-admin/menu.service';
 import * as _ from 'lodash';
@@ -29,16 +29,18 @@ export class MenuAdminComponent implements OnInit {
 
   menus!: Menu[];
 
+
   
 
 
 
-  constructor(private menuAdminService : menuAdminService, private routeActive: ActivatedRoute){
+  constructor(private menuAdminService : menuAdminService, private routeActive: ActivatedRoute, private router: Router){
 
 
    
   }
   ngOnInit() {
+
 
     this.menuAdminService.buscarMenu().subscribe(data =>{
 
@@ -63,6 +65,13 @@ export class MenuAdminComponent implements OnInit {
 }
 
 
+ 
+public sair() {
+  localStorage.clear();
+  this.router.navigate(['admin/login']);
+}
+
+
 
 imageShow: any = '';
     onChange(event: any){
@@ -78,7 +87,6 @@ imageShow: any = '';
             
               this.imageShow = reader.result;
 
-              console.log(this.imageShow);
 
               this.menu.photo = this.imageShow;
               /** Utiliza o salvamento de photo para a mesma instancia de objeto,

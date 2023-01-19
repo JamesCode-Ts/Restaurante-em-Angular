@@ -43,7 +43,7 @@ export class userService {
 
       updateUsuario(user: User) : Observable<any>{
 
-        return this.http.put<any>(AppConstants.getbaseUrlPath + 'adm/', user, this.httpOptions);
+        return this.http.put<any>(AppConstants.getbaseUrlPath + 'adm/update', user);
       
       }
 
@@ -63,5 +63,17 @@ export class userService {
 
         return this.http.get<any>(AppConstants.getbaseUrlPath + 'adm/qnt');
        }
+
+       userAutenticado() {
+
+        if (localStorage.getItem('token') !== null &&
+          localStorage.getItem('token')!.toString().trim() !== null) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      
+      
 
 }

@@ -39,6 +39,7 @@
     "@angular/cli": "~11.2.13",
     "@angular/compiler-cli": "~11.2.14",
     "@types/jasmine": "~3.6.0",
+    "@types/jquery": "^3.5.16",
     "@types/lodash": "^4.14.191",
     "@types/node": "^12.11.1",
     "angular-ide": "^0.9.77",

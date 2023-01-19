@@ -39,5 +39,10 @@ export class ReservaAdminService {
       
       }
 
-      
+     
+
+      getReservaListPage(pagina: number): Observable<any> {    
+        return this.http.get<any>(AppConstants.getbaseUrlPath + 'home/page/' + pagina);
+       }
+    
 }

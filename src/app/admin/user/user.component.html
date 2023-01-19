@@ -68,7 +68,7 @@
                   <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sair</a>
+                  <a href="#" (click)="sair()" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -112,25 +112,25 @@
           </a>
         </li>
         <li>
-          <a href="reservations.html">
+          <a href="admin/reservas">
             <i class="fa fa-calendar-check-o"></i>
             <span>Reservas</span>
           </a>
         </li>
         <li>
-          <a href="contacts.html">
+          <a href="admin/contatos">
             <i class="fa fa-comments"></i>
             <span>Contatos</span>
           </a>
         </li>
         <li class="active">
-          <a href="users.html">
+          <a href="admin/user">
             <i class="fa fa-users"></i>
             <span>Usuários</span>
           </a>
         </li>
         <li>
-          <a href="emails.html">
+          <a href="admin/emails">
             <i class="fa fa-envelope"></i>
             <span>E-mails</span>
           </a>
@@ -180,7 +180,7 @@
                         <td>{{user.login}}</td>
                         <td>
                             <button type="button" [routerLink]="['/admin/user', user.id]" routerLinkActive="router-link-active" class="btn btn-xs btn-info" data-toggle="modal" data-target="#modal-update"><i class="fa fa-pencil"></i> Editar</button>&nbsp;
-                            <button type="button" class="btn btn-xs btn-warning btn-update" data-toggle="modal" data-target="#modal-update-password">
+                            <button type="button"  [routerLink]="['/admin/user', user.id]" routerLinkActive="router-link-active" class="btn btn-xs btn-warning btn-update" data-toggle="modal" data-target="#modal-update-password">
                                 <i class="fa fa-lock"></i> Alterar Senha</button>&nbsp;
                             <button type="button" (click)="deleteUsuario(user.id,i)" class="btn btn-xs btn-danger btn-delete"><i class="fa fa-trash"></i> Excluir</button></td>
                     </tr>
@@ -195,7 +195,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <div class="modal" id="modal-update-password">
+  <div class="modal fade" id="modal-update-password">
     <div class="modal-dialog">
       <div class="modal-content" style="border-top: 3px solid #f39c12;">
         <form method="post">
@@ -211,14 +211,11 @@
               <label for="inputPassword">Nova Senha</label>
               <input type="password" class="form-control"  [(ngModel)]="user.senha"   id="senha" name="senha">
             </div>
-            <div class="form-group">
-              <label for="inputPasswordConfirm">Confirmar Senha</label>
-              <input type="password" class="form-control" [(ngModel)]="user.senha"   id="senha" name="senha">
-            </div>
+           
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-            <button type="submit" (click)="saveUser()"  class="btn btn-warning">Salvar</button>
+            <button type="submit"(click)="saveUser()"  class="btn btn-warning">Salvar</button>
           </div>
         </form>
       </div>
@@ -227,7 +224,7 @@
     <!-- /.modal-dialog -->
   </div>
   
-  <div class="modal" id="modal-create">
+  <div class="modal fade" id="modal-create">
     <div class="modal-dialog">
       <div class="modal-content" style="border-top: 3px solid #00a65a;">
         <form  #formValidate="ngForm">
@@ -263,7 +260,7 @@
     <!-- /.modal-dialog -->
   </div>
   
-  <div class="modal" id="modal-update">
+  <div class="modal fade" id="modal-update">
     <div class="modal-dialog">
       <div class="modal-content" style="border-top: 3px solid #00c0ef;">
         <form>

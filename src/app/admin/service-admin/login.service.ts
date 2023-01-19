@@ -1,15 +1,23 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { AppConstants } from 'src/app/app-constants';
 import {Router} from '@angular/router';
 import { User } from '../model/User';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+  };
+
   constructor(private http: HttpClient, private router: Router) { }
 
   recuperar(login: string | String){ /**Pega o login digitado pelo o usuario */
@@ -35,6 +43,9 @@ export class LoginService {
    );
     }
 
+
+  
+
     login(usuario: { login: string; senha: string; }){
 
         /** OBS: È preciso ter os papeis(roles) bem definidos para fazer a autentificação na camada do back-end.
@@ -53,7 +64,13 @@ export class LoginService {
 
           console.info("Tohken: " + localStorage.getItem("token"));
 
-          this.router.navigate(['admin/user']);
+          this.usuarioLogado().subscribe(data=>{
+
+            console.log(data);
+      
+          });
+
+          this.router.navigate(['admin/index']);
 
 
        },
@@ -65,4 +82,13 @@ export class LoginService {
        );
     }
 
+
+
+    usuarioLogado() : Observable<any>{
+
+      return this.http.get<any>(AppConstants.getbaseUrlPath + 'adm/buscar');
+  
+  
+  
+    }
 }

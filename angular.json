@@ -30,11 +30,21 @@
 				"node_modules/bootstrap/dist/css/bootstrap.min.css",
 				"node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
+           
+
 			],
 			"scripts": [
 				"node_modules/jquery/dist/jquery.js",
 				"node_modules/popper.js/dist/umd/popper.js",
-				"node_modules/bootstrap/dist/js/bootstrap.js"
+				"node_modules/bootstrap/dist/js/bootstrap.js",
+        "src/app/admin/bower_components/jquery/dist/jquery.min.js",
+        "src/app/admin/bower_components/bootstrap/dist/js/bootstrap.min.js",
+        "src/app/admin/bower_components/PACE/pace.min.js",
+        "src/app/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
+        "src/app/admin/bower_components/fastclick/lib/fastclick.js",
+        "src/app/admin/dist/js/adminlte.min.js",
+        "src/app/admin/dist/js/demo.js"
+
 			]
           },
           "configurations": {

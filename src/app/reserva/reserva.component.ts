@@ -68,10 +68,14 @@ export class ReservaComponent implements OnInit {
 
   }
 
+  converterDatas() {
+    let data: Date = new Date();
+    this.reserva.dataDaCadastro = data.toLocaleDateString('pt-br');
+  }
 
 
   saveReserve(){
-
+     this.converterDatas();
     this.reservaService.salvarReserva(this.reserva).subscribe(data =>{
     this.reserva = data;
     this.novo();

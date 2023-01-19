@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { isNumber } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { ContatoComponent } from 'src/app/contato/contato.component';
 import { ContatoAdminComponent } from '../contato/contato.component';
@@ -31,7 +32,8 @@ contato = new Contato
 
  
 
-  constructor(private userService : userService, private menuService : menuAdminService, private contatoAdminService : ContatoAdminService) { }
+  constructor(private userService : userService, private menuService : menuAdminService,
+     private contatoAdminService : ContatoAdminService, private router: Router) { }
 
   ngOnInit(){
 
@@ -61,6 +63,11 @@ contato = new Contato
 
 })
 
+  }
+
+  public sair() {
+    localStorage.clear();
+       this.router.navigate(['admin/login']);
   }
 
 
