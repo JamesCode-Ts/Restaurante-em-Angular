@@ -41,7 +41,7 @@ export class MenuAdminComponent implements OnInit {
   }
   ngOnInit() {
 
-
+    console.log("Teste");
     this.menuAdminService.buscarMenu().subscribe(data =>{
 
       this.menus = data.content;
@@ -76,6 +76,8 @@ public sair() {
 imageShow: any = '';
     onChange(event: any){
 
+
+
         if (event.target.files && event.target.files[0]) {
       
             
@@ -94,8 +96,10 @@ imageShow: any = '';
                */
               this.menuAdminService.salvarMenu(this.menu).subscribe(data =>{
 
-                console.log("photo salva!",data)
-               })
+                console.log("photo salva!",data);
+
+               
+              })
               }
         
             
@@ -114,13 +118,21 @@ imageShow: any = '';
 
 }
 
+cancelar(){
+
+  this.router.navigate(['admin/menu']);    
+}
   saveMenu() {
    
     if(this.menu.id != null && this.menu.id.toString().trim != null){ /** Atualizando ou  Editando */
       this.menuAdminService.updateMenu(this.menu).subscribe(data =>{
         console.info(" User Atualizado: " + data);
+            
+      
+     //   this.router.navigate(['admin/menu']);   
+    //    location.reload();
         this.novo();
-        location.reload();
+       
       });
 
     }else{
@@ -131,6 +143,7 @@ imageShow: any = '';
       
      
      this.menus.push(data);
+   
     
       console.info(" Gravou User " + data);
        

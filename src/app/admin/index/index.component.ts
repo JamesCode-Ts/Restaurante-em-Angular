@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { isNumber } from '@ng-bootstrap/ng-bootstrap/util/util';
-import { ContatoComponent } from 'src/app/contato/contato.component';
-import { ContatoAdminComponent } from '../contato/contato.component';
 import { Contato } from '../model/contato';
 import { Menu } from '../model/Menu';
 import { User } from '../model/User';
 import { ContatoAdminService } from '../service-admin/contato.service';
 import { menuAdminService } from '../service-admin/menu.service';
 import { userService } from '../service-admin/user.service';
-
+import { ReservaAdminService } from '../service-admin/reserva.service';
+import { Reserva } from '../model/Reserva';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -24,15 +23,18 @@ import { userService } from '../service-admin/user.service';
 export class IndexComponent implements OnInit {
 
 
+
 menu = new Menu
 users!: User[];
 user = new User()
+contato = new Contato;
+reserva = new Reserva;
 
-contato = new Contato
 
  
 
   constructor(private userService : userService, private menuService : menuAdminService,
+    private reservaAdminService : ReservaAdminService,
      private contatoAdminService : ContatoAdminService, private router: Router) { }
 
   ngOnInit(){
@@ -58,9 +60,11 @@ contato = new Contato
 
     this.contato.quantDeContato = data;
 
+});
 
+this.reservaAdminService.getQntDeReservar().subscribe(data=>{
 
-
+  this.reserva.quantDeReserva = data;
 })
 
   }

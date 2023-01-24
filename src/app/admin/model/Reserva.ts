@@ -8,5 +8,7 @@ export class Reserva {
     pessoas!: String;
     dataDaCadastro!: String;
     hora!: String;
+    quantDeReserva!: Number ;
+
 
 }

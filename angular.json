@@ -43,7 +43,10 @@
         "src/app/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
         "src/app/admin/bower_components/fastclick/lib/fastclick.js",
         "src/app/admin/dist/js/adminlte.min.js",
-        "src/app/admin/dist/js/demo.js"
+        "src/app/admin/dist/js/demo.js",
+       "src/app/admin/plugins/pace/pace.js",
+       "src/app/admin/plugins/pace/pace.min.js"
+
 
 			]
           },
@@ -57,7 +60,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,

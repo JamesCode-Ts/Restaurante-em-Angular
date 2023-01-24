@@ -41,6 +41,11 @@ export class UserComponent implements OnInit {
     }
 
 
+this.userService.buscarUsuario().subscribe(data=>{
+
+ this.users = data.content;
+})
+
 
     let id = this.routeActive.snapshot.paramMap.get('id');
 

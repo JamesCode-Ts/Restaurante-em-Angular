@@ -15,7 +15,6 @@ import { ContatoComponent } from './contato/contato.component';
 import { ReservaComponent } from './reserva/reserva.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './admin/login/login.component';
 import { UserComponent } from './admin/user/user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -25,6 +24,8 @@ import { ContatoAdminComponent } from './admin/contato/contato.component';
 import { ReservaAdminComponent } from './admin/reserva/reserva.component';
 import { NavMenuAdmin } from './admin/inc/nav-menuAdmin';
 import { GuardiaoGuard } from './admin/service-admin/guardiao.guard';
+import { EmailComponent } from './admin/email/email.component';
+
 
 
 
@@ -47,6 +48,8 @@ export const appRouters: Routes = [
   {path : 'admin/index', component : IndexComponent, canActivate: [GuardiaoGuard]},
   {path : 'admin/contatos', component : ContatoAdminComponent, canActivate: [GuardiaoGuard]},
   {path : 'admin/reservas', component : ReservaAdminComponent, canActivate: [GuardiaoGuard]},
+  {path : 'admin/emails', component : EmailComponent, canActivate: [GuardiaoGuard]},
+
 
 
 
@@ -67,14 +70,14 @@ export const optionsMask : Partial<IConfig> | (() => Partial<IConfig>) = {};
     ServicosComponent,
     ContatoComponent,
     ReservaComponent,
-    AdminComponent,
     LoginComponent,
-     UserComponent,
+    UserComponent,
      MenuAdminComponent,
      IndexComponent,
      ContatoAdminComponent,
      ReservaAdminComponent,
-     NavMenuAdmin
+     NavMenuAdmin,
+     EmailComponent,
 
    
   ],
