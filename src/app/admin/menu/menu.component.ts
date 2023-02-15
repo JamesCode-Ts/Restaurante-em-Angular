@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { LoginService } from '../service-admin/login.service';
 import { User } from '../model/User';
+import { UserOnline } from '../model/userOnline';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class MenuAdminComponent implements OnInit {
   cardImageBase64!: string;
   user = new User()
   base64data!:string;
-
+  userOnline = new UserOnline;
   menu = new Menu;
 
   menus!: Menu[];
@@ -43,6 +44,20 @@ export class MenuAdminComponent implements OnInit {
    
   }
   ngOnInit() {
+
+
+    this.loginService.usuarioLogado().subscribe(data=>{
+
+      this.userOnline.nomeOn =  data.nome;
+
+      this.userOnline.photoOn = data.photo;
+
+      this.userOnline.loginOn = data.login;
+     
+       
+     })
+   
+
     //alert('entrou');
     this.loginService.usuarioLogado();
     console.log("Teste");

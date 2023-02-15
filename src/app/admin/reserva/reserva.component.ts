@@ -4,6 +4,7 @@ import { ReservaAdminService } from '../service-admin/reserva.service';
 import { DatePipe } from '@angular/common';
 import { LoginService } from '../service-admin/login.service';
 import { User } from '../model/User';
+import { UserOnline } from '../model/userOnline';
 
 @Component({
   selector: 'app-reserva',
@@ -23,6 +24,7 @@ export class ReservaAdminComponent implements OnInit {
   user = new User()
   nome! : String;
   reserva = new Reserva;
+  userOnline = new UserOnline;
 
   reservas!: Reserva[]
 
@@ -30,20 +32,24 @@ export class ReservaAdminComponent implements OnInit {
 
   ngOnInit() {
 
+    
+    this.loginService.usuarioLogado().subscribe(data=>{
+
+      this.userOnline.nomeOn =  data.nome;
+  
+      this.userOnline.photoOn = data.photo;
+  
+      this.userOnline.loginOn = data.login;
+     
+       
+     })
   this.reservaAdminService.buscarReserva().subscribe(data =>{
 
     this.reservas = data.content;
   })
 
       
-  this.loginService.usuarioLogado().subscribe(data=>{
 
-    this.user.nome =  data.nome;
-
-    this.user.photo =  data.photo;
-
-    
-  })
   }
 
   converterDatas() {

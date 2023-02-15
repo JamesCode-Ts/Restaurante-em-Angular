@@ -10,6 +10,7 @@ import { userService } from '../service-admin/user.service';
 import { ReservaAdminService } from '../service-admin/reserva.service';
 import { Reserva } from '../model/Reserva';
 import { LoginService } from '../service-admin/login.service';
+import { UserOnline } from '../model/userOnline';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -30,7 +31,7 @@ users!: User[];
 user = new User()
 contato = new Contato;
 reserva = new Reserva;
-
+userOnline = new UserOnline;
 
  
 
@@ -43,12 +44,15 @@ reserva = new Reserva;
 
     this.loginService.usuarioLogado().subscribe(data=>{
 
-      this.user.nome =  data.nome;
+      this.userOnline.nomeOn =  data.nome;
 
-      this.user.photo = data.photo;
+      this.userOnline.photoOn = data.photo;
 
-      
-    })
+      this.userOnline.loginOn = data.login;
+     
+       
+     })
+   
 
     this.userService.getQntDeUser().subscribe(data => {
       

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contato } from '../model/contato';
 import { User } from '../model/User';
+import { UserOnline } from '../model/userOnline';
 import { ContatoAdminService } from '../service-admin/contato.service';
 import { LoginService } from '../service-admin/login.service';
 
@@ -19,23 +20,26 @@ export class EmailComponent implements OnInit {
 
   contatos!: Contato[]
   user = new User;
-
+  userOnline = new UserOnline;
   contato = new Contato
 
 
 
   constructor(private contatoService: ContatoAdminService, private loginService: LoginService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
 
     this.loginService.usuarioLogado().subscribe(data=>{
 
-      this.user.nome =  data.nome;
+      this.userOnline.nomeOn =  data.nome;
 
-      this.user.photo = data.photo;
+      this.userOnline.photoOn = data.photo;
 
-      
-    })
+      this.userOnline.loginOn = data.login;
+     
+       
+     })
+   
 
 
     this.contatoService.buscarContato().subscribe(data =>{
