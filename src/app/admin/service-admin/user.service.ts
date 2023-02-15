@@ -29,7 +29,7 @@ export class userService {
     }
     salvarUsuario(user : User) : Observable<any>{
 
-        return this.http.post<any>(AppConstants.getbaseUrlPath + 'adm/', user);
+        return this.http.post<any>(AppConstants.getbaseUrlPath + 'adm/', user,this.httpOptions);
       
       }
 

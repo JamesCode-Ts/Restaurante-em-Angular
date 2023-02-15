@@ -68,6 +68,8 @@ export class MenuAdminComponent implements OnInit {
 
         this.user.nome =  data.nome;
 
+        this.user.photo = data.photo;
+
         
       })
 
@@ -104,12 +106,12 @@ imageShow: any = '';
               /** Utiliza o salvamento de photo para a mesma instancia de objeto,
                * não precisando usar o ngModel no input no html.
                */
-              this.menuAdminService.salvarMenu(this.menu).subscribe(data =>{
+        //      this.menuAdminService.salvarMenu(this.menu).subscribe(data =>{
 
-                console.log("photo salva!",data);
+           //     console.log("photo salva!",data);
 
                
-              })
+          //    })
               }
         
             

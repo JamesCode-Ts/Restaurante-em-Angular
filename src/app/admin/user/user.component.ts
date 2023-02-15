@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { User } from '../model/User';
+import { UserOnline } from '../model/userOnline';
 import { LoginService } from '../service-admin/login.service';
 import { userService } from '../service-admin/user.service';
 
@@ -26,6 +27,7 @@ export class UserComponent implements OnInit {
   total!: number;
   nome!: string;
   quantDeId!: number ;
+  userOnline = new UserOnline;
  
  
 
@@ -38,13 +40,17 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
 
+      
+    
+    
+     this.loginService.usuarioLogado().subscribe(data=>{
 
-      this.loginService.usuarioLogado().subscribe(data=>{
+       this.userOnline.nomeOn =  data.nome;
 
-        this.user.nome =  data.nome;
+       this.userOnline.photoOn = data.photo;
 
-        this.user.photo = data.photo;
-
+       this.userOnline.loginOn = data.login;
+      
         
       })
     
@@ -171,12 +177,12 @@ imageShow: any = '';
               /** Utiliza o salvamento de photo para a mesma instancia de objeto,
                * não precisando usar o ngModel no input no html.
                */
-              this.userService.salvarUsuario(this.user).subscribe(data =>{
+           //   this.userService.salvarUsuario(this.user).subscribe(data =>{
 
-                console.log("photo salva!",data);
+          //      console.log("photo salva!",data);
 
                
-              })
+           //   })
               }
         
             

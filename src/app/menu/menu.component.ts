@@ -36,7 +36,7 @@ export class MenuComponent implements OnInit {
 
       this.user.nome =  data.nome;
 
-      this.user.photo = data.photo;
+
     
     })
 

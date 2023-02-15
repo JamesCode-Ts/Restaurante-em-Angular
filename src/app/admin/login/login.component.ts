@@ -49,7 +49,14 @@ export class LoginComponent implements OnInit {
     localStorage.getItem('token')!.toString().trim() !== null ){
     
   
+      this.loginService.usuarioLogado().subscribe(data=>{
 
+        this.user.nome =  data.nome;
+    
+        this.user.photo =  data.photo;
+    
+        
+      })
     this.router.navigate(['admin/index']);
 
     }

@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
   
+  user = new User;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -66,10 +67,15 @@ export class LoginService {
 
           this.usuarioLogado().subscribe(data=>{ // Aqui,
 
+            this.user.nome =  data.nome;
+
+            this.user.photo =  data.photo;
+            location.reload()
+
             console.log(data);
       
           });
-
+        
           this.router.navigate(['admin/index']);
 
 

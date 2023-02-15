@@ -40,6 +40,8 @@ export class ReservaAdminComponent implements OnInit {
 
     this.user.nome =  data.nome;
 
+    this.user.photo =  data.photo;
+
     
   })
   }
