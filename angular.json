@@ -89,6 +89,8 @@
             "production": {
               "browserTarget": "restaurante:build:production"
             }
+
+            
           }
         },
         "extract-i18n": {
