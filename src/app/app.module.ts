@@ -27,11 +27,6 @@ import { GuardiaoGuard } from './admin/service-admin/guardiao.guard';
 import { EmailComponent } from './admin/email/email.component';
 
 
-
-
-
-
-
 export const appRouters: Routes = [
 
   {path : 'home', component : HomeComponent,},
@@ -49,9 +44,6 @@ export const appRouters: Routes = [
   {path : 'admin/contatos', component : ContatoAdminComponent, canActivate: [GuardiaoGuard]},
   {path : 'admin/reservas', component : ReservaAdminComponent, canActivate: [GuardiaoGuard]},
   {path : 'admin/emails', component : EmailComponent, canActivate: [GuardiaoGuard]},
-
-
-
 
 
 
