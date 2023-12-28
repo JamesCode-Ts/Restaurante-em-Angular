@@ -27,3 +27,15 @@ Dashboard
 Cadastramento de Menu
 
 ![menu-restaurante](https://github.com/JamesCode-Ts/Restaurante-em-Angular/assets/63932833/5d079800-d7a6-48a3-9e8a-ad72b7a64344)
+
+Tecnologias Utilizadas:
+
+Angular 8
+
+BootStrap
+
+TypeScript
+
+# Back-end
+
+https://github.com/JamesCode-Ts/API-Restaurante-
