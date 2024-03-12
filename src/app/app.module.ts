@@ -29,13 +29,13 @@ import { EmailComponent } from './admin/email/email.component';
 
 export const appRouters: Routes = [
 
-  {path : 'home', component : HomeComponent,},
+  {path : '', component : HomeComponent,},
   {path : 'menu', component : MenuComponent, },
   {path : 'servicos', component : ServicosComponent},
   {path : 'contato', component : ContatoComponent},
   {path : 'reserva', component : ReservaComponent},
   {path : 'admin/login', component : LoginComponent},
-  {path: '', component : LoginComponent},
+  
   {path : 'admin/user', component : UserComponent, canActivate: [GuardiaoGuard]},
   {path : 'admin/user/:id', component : UserComponent, canActivate: [GuardiaoGuard]},
   {path : 'admin/menu', component : MenuAdminComponent, canActivate: [GuardiaoGuard]},
