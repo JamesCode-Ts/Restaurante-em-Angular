@@ -29,7 +29,8 @@ import { EmailComponent } from './admin/email/email.component';
 
 export const appRouters: Routes = [
 
-  {path : '', component : HomeComponent,},
+  {path : '', component : HomeComponent},
+  {path : 'home', component : HomeComponent},
   {path : 'menu', component : MenuComponent, },
   {path : 'servicos', component : ServicosComponent},
   {path : 'contato', component : ContatoComponent},

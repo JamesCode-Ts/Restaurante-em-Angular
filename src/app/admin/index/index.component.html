@@ -23,59 +23,36 @@
   <div class="wrapper">
 
     <!-- Main Header -->
-    <header class="main-header">
+    <header class="main-header" style="background-color:#242629 ; height: 60px;" >
 
       <!-- Logo -->
-      <a href="index.html" class="logo">
+      <a href="index2.html" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"></span>
+        <span class="logo-lg" ></span>
       </a>
 
       <!-- Header Navbar -->
       <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <a href="#" class="sidebar-toggle"   data-toggle="push-menu" role="button">
           <span class="sr-only">Toggle navigation</span>
+
         </a>
+
+    
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            <!-- User Account Menu -->
-            <li class="dropdown user user-menu">
-              <!-- Menu Toggle Button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <!-- The user image in the navbar-->
-                <img src="../dist/img/avatar5.png" class="user-image" alt="User Image">
-                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                <span class="hidden-xs">Fulano Junior</span>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- The user image in the menu -->
-                <li class="user-header">
-                  <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
-
-                  <p>
-                    Fulano Junior
-                    <small>fulano@hcode.com.br</small>
-                  </p>
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
-                  </div>
-                  <div class="pull-right">
-                    <a  (click)="sair()" class="btn btn-default btn-flat">Sair</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-          </ul>
+         
+                  
+          <a href="#" (click)="sair()" class="btn btn-default btn-flat">Sair</a>  
+              
+         
         </div>
       </nav>
     </header>
+    
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
 
@@ -157,13 +134,13 @@
 
         <div class="row">
           <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box" onclick="window.location.href = 'admin/reservas'" style="cursor:pointer">
+            <div class="info-box" routerLink="/admin/menu" style="cursor:pointer">
               <span class="info-box-icon bg-aqua">
                 <i class="ion ion-ios-calendar"></i>
               </span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Reservas</span>
+                <span class="info-box-text" >Reservas</span>
                 <span class="info-box-number">{{reserva.quantDeReserva}}</span>
               </div>
               <!-- /.info-box-content -->
@@ -172,7 +149,7 @@
           </div>
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box" onclick="window.location.href = 'admin/contatos'" style="cursor:pointer">
+            <div class="info-box" routerLink="/admin/contatos" style="cursor:pointer">
               <span class="info-box-icon bg-red">
                 <i class="ion ion-ios-chatboxes"></i>
               </span>
@@ -191,7 +168,7 @@
           <div class="clearfix visible-sm-block"></div>
 
           <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box" onclick="window.location.href = 'admin/menu'" style="cursor:pointer">
+            <div class="info-box" routerLink="/admin/menu" style="cursor:pointer">
               <span class="info-box-icon bg-green">
                 <i class="fa fa-cutlery"></i>
               </span>
@@ -206,7 +183,7 @@
           </div>
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box" onclick="window.location.href = 'admin/user'" style="cursor:pointer">
+            <div class="info-box" routerLink="/admin/user" style="cursor:pointer">
               <span class="info-box-icon bg-yellow">
                 <i class="ion ion-ios-people-outline"></i>
               </span>

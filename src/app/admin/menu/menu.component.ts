@@ -126,7 +126,7 @@ cancelar(){
    
     if(this.menu.id != null && this.menu.id.toString().trim != null){ /** Atualizando ou  Editando */
       this.menuAdminService.updateMenu(this.menu).subscribe(data =>{
-        console.info(" User Atualizado: " + data);
+        console.info(" Menu Atualizado: " + data);
             
       
      //   this.router.navigate(['admin/menu']);   

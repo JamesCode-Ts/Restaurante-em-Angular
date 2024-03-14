@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Reserva } from '../model/Reserva';
 import { ReservaAdminService } from '../service-admin/reserva.service';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reserva',
@@ -24,7 +25,7 @@ export class ReservaAdminComponent implements OnInit {
 
   reservas!: Reserva[]
 
-  constructor(private reservaAdminService: ReservaAdminService) { }
+  constructor(private reservaAdminService: ReservaAdminService,private router: Router) { }
 
   ngOnInit() {
 
@@ -83,6 +84,12 @@ carregarPagina(pagina: number) {
 novo(){
 
   this.reserva =  new Reserva;
+}
+
+
+public sair() {
+  localStorage.clear();
+  this.router.navigate(['admin/login']);
 }
 
 }

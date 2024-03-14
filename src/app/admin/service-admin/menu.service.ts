@@ -49,9 +49,13 @@ import { Menu } from '../model/Menu';
 
       updateMenu(menu: Menu) : Observable<any>{
 
-        return this.http.put<any>(AppConstants.getbaseUrlPath + 'menu/', menu, this.httpOptions);
+        const id = menu.id;
+        const url = `${AppConstants.getbaseUrlPath}menu/${id}`;
+
+        // Adicione os dados atualizados do menu no corpo da solicitação
+       return this.http.put<any>(url, menu, this.httpOptions);
       
-      }
+      } 
       getQntDeMenu(): Observable<any>{
 
         return this.http.get<any>(AppConstants.getbaseUrlPath + 'menu/qnt');
