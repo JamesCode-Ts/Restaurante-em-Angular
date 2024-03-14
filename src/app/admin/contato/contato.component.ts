@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contato } from '../model/contato';
 import { ContatoAdminService } from '../service-admin/contato.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contato',
@@ -19,7 +20,7 @@ export class ContatoAdminComponent implements OnInit {
 
   contato = new Contato
 
-  constructor(private contatoService : ContatoAdminService) { }
+  constructor(private contatoService : ContatoAdminService, private router : Router) { }
 
   ngOnInit() {
 
@@ -30,16 +31,7 @@ export class ContatoAdminComponent implements OnInit {
 
     });
 
- 
-
-
-
   }
-
-
- 
-
-
     excluirContato(id: Number,  index: number){
 
       this.contatoService.deletarContato(id).subscribe(data =>{
@@ -52,6 +44,10 @@ export class ContatoAdminComponent implements OnInit {
       })
     }
     
+    public sair() {
+      localStorage.clear();
+         this.router.navigate(['admin/login']);
+    }
     
 }
 

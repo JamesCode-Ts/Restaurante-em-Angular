@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contato } from '../model/contato';
 import { ContatoAdminService } from '../service-admin/contato.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-email',
@@ -21,7 +22,7 @@ export class EmailComponent implements OnInit {
 
 
 
-  constructor(private contatoService: ContatoAdminService) { }
+  constructor(private contatoService: ContatoAdminService, private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -45,5 +46,9 @@ export class EmailComponent implements OnInit {
 
     })
   }
-  
+  public sair() {
+    localStorage.clear();
+       this.router.navigate(['admin/login']);
+  }
+
 }

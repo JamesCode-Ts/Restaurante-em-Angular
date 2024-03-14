@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contato } from '../model/contato';
 import { ContatoService } from '../service/contato.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contato',
@@ -21,7 +22,7 @@ export class ContatoComponent implements OnInit {
 
   contato = new Contato();
 
-  constructor(private contatoService : ContatoService) { }
+  constructor(private contatoService : ContatoService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -39,6 +40,11 @@ saveContact(){
 
 novo(){
   this.contato = new Contato();
+}
+
+public sair() {
+  localStorage.clear();
+  this.router.navigate(['admin/login']);
 }
 
 }
