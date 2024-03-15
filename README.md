@@ -39,6 +39,12 @@ TypeScript
 # Deploy
 [https://restaurante-em-angular.vercel.app/](https://restaurante-em-angular-iota.vercel.app/)
 
+Para acessar login/adm:
+
+login: adm@gmail.com
+
+senha: admin
+
 # Back-end
 
 https://github.com/JamesCode-Ts/API-Restaurante-
