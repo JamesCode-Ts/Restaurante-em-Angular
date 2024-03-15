@@ -21,15 +21,11 @@ export class MenuComponent implements OnInit {
   menus!: Menu[];
  
 
-  constructor(private menuServive: MenuService ) { 
-
-    
-  }
+  constructor(private menuServive: MenuService ) {}
 
 
   ngOnInit() {
 
-    
     this.menuServive.buscarMenu().subscribe(data => {
       this.menus = data.content;
     });

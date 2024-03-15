@@ -115,11 +115,16 @@
 								<h1 class="cursive-font">Restaurante Carioca!</h1>
 							</div>
 							<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
+								<div *ngIf="mensagem" class= "alert alert-success" role="alert" style="opacity: 0.7;">
+									<a href="#" class="alert-link"></a>Mesa reservada com sucesso!
+								 </div>
 								<div class="form-wrap">
 									<div class="tab">
-
+										
 										<div class="tab-content">
+											
 											<div class="tab-content-inner active" data-content="signup">
+												
 												<h3 class="cursive-font">Reserva de mesa</h3>
 												<form  #formValidate="ngForm">
 													<div class="row form-group">
@@ -154,7 +159,7 @@
 													<div class="row form-group">
 														<div class="col-md-12">
 															<label for="inputDate">Data</label>
-															<input type="text" [dropSpecialCharacters]="false" mask="00/00/0000"  [(ngModel)]="reserva.dataDaCadastro"  #dataValidate="ngModel"  id="dataDaCadastro" name="dataDaCadastro" class="form-control">
+															<input type="text" [dropSpecialCharacters]="false" mask="00/00/0000" placeholder="dd/mm/aaaa" [(ngModel)]="reserva.dataDaCadastro"  #dataValidate="ngModel"  id="dataDaCadastro" name="dataDaCadastro" class="form-control">
 														</div>
 													</div>
 													<div class="row form-group">

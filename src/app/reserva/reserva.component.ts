@@ -59,7 +59,7 @@ export class ReservaComponent implements OnInit {
 
 
   reserva =  new Reserva();
-  
+  mensagem: boolean = false;
 
 
   constructor(private reservaService: ReservaService) { }
@@ -79,7 +79,13 @@ export class ReservaComponent implements OnInit {
     this.reservaService.salvarReserva(this.reserva).subscribe(data =>{
     this.reserva = data;
     this.novo();
+    this.mensagem = true
 
+    
+   // Defina um tempo de exibição (por exemplo, 5 segundos)
+   setTimeout(() => {
+    this.mensagem = false;
+  }, 5000); // Tempo em milissegundos
       console.info(" Gravou reserva " + data);
 
     })
