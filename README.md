@@ -39,9 +39,9 @@ TypeScript
 # Deploy
 [https://restaurante-em-angular.vercel.app/](https://restaurante-em-angular-iota.vercel.app/)
 
-Para acessar login/adm:
+Para acessar Login/Admin
 
-login: adm@gmail.com
+login: admin@gmail.com
 
 senha: admin
 
