@@ -24,6 +24,7 @@
   <div class="wrapper">
 
    
+   
     <!-- Main Header -->
     <header class="main-header" style="background-color:#242629 ; height: 60px;" >
 
@@ -54,25 +55,25 @@
         </div>
       </nav>
     </header>
-    
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
+
+       <!-- Left side column. contains the logo and sidebar -->
+       <aside class="main-sidebar">
 
     
-      <!-- sidebar: style can be found in sidebar.less -->
-      <section class="sidebar">
-
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel">
-          <div class="pull-left image">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+  
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel">
+            <div class="pull-left image">
+          
+            </div>
+            <div class="pull-left info">
+         
+              <!-- Status -->
         
+            </div>
           </div>
-          <div class="pull-left info">
-       
-            <!-- Status -->
-      
-          </div>
-        </div>
 
             <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -163,7 +164,8 @@
                   <td>{{menu.title}}</td>
                   <td>{{menu.description}}.</td>
                   <td>{{menu.price}}</td>
-                  <td><button type="button" [routerLink]="['/admin/menu', menu.id]"  routerLinkActive="router-link-active" class="btn btn-xs btn-info btn-update" data-toggle="modal" data-target="#modal-update"><i
+                  <td><button type="button" [routerLink]="['/admin/menu', menu.id]"  
+                    routerLinkActive="router-link-active" class="btn btn-xs btn-info btn-update" data-toggle="modal" data-target="#modal-update"><i
                         class="fa fa-pencil"  ></i> Editar</button>&nbsp;
                         <button type="button" class="btn btn-xs btn-danger btn-delete" (click)="deleteMenu(menu.id, i)"><i
                         class="fa fa-trash" ></i> Excluir</button></td>

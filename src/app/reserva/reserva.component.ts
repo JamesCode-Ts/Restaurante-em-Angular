@@ -31,9 +31,6 @@ export class FormatDateAdapter extends NgbDateAdapter<string> {
 
 }
 
-
-
-
 @Component({
   selector: 'app-reserva',
   templateUrl: './reserva.component.html',

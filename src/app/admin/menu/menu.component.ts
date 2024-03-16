@@ -30,58 +30,36 @@ export class MenuAdminComponent implements OnInit {
   menus!: Menu[];
 
 
-  
+  constructor(private menuAdminService : menuAdminService, private routeActive: ActivatedRoute, private router: Router){}
 
-
-
-  constructor(private menuAdminService : menuAdminService, private routeActive: ActivatedRoute, private router: Router){
-
-
-   
-  }
   ngOnInit() {
 
     console.log("Teste");
     this.menuAdminService.buscarMenu().subscribe(data =>{
-
       this.menus = data.content;
-  
       })
 
       let id = this.routeActive.snapshot.paramMap.get('id')
 
       if (id != null){
-
         this.menuAdminService.getMenu(id).subscribe(data =>{
-
+          
           this.menu = data;
         })
 
-
-      }
-      
-
-      
+      }  
 }
-
-
  
 public sair() {
   localStorage.clear();
   this.router.navigate(['admin/login']);
 }
 
-
-
 imageShow: any = '';
     onChange(event: any){
 
-
-
         if (event.target.files && event.target.files[0]) {
-      
             
-         
             var reader = new FileReader();
             reader.readAsDataURL(event.target.files[0]);
             
@@ -97,25 +75,12 @@ imageShow: any = '';
               this.menuAdminService.salvarMenu(this.menu).subscribe(data =>{
 
                 console.log("photo salva!",data);
-
                
               })
               }
-        
-            
-           //   this.menu.photo = base64data;
-           
-
+            //   this.menu.photo = base64data
             }
-         
-            
-            
-          
-            
-
-     
-
-
+        
 }
 
 cancelar(){
@@ -138,25 +103,13 @@ cancelar(){
     }else{
       
       this.menuAdminService.salvarMenu(this.menu).subscribe(data =>{ /**Salvando usuario */
-
-      
-      
-     
-     this.menus.push(data);
    
-    
+      this.menus.push(data);
+     
       console.info(" Gravou User " + data);
        
          
-      });
-
-      
-  
-
-   
-    
-
-      
+      });     
     }
     
     

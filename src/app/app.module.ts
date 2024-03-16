@@ -44,7 +44,8 @@ export const appRouters: Routes = [
   {path : 'admin/index', component : IndexComponent, canActivate: [GuardiaoGuard]},
   {path : 'admin/contatos', component : ContatoAdminComponent, canActivate: [GuardiaoGuard]},
   {path : 'admin/reservas', component : ReservaAdminComponent, canActivate: [GuardiaoGuard]},
-  {path : 'admin/emails', component : EmailComponent, canActivate: [GuardiaoGuard]},
+  {path : 'admin/reservas/:id', component : ReservaAdminComponent, canActivate: [GuardiaoGuard]},
+  {path : 'admin/emails', component : EmailComponent, canActivate: [GuardiaoGuard]}
 
 
 

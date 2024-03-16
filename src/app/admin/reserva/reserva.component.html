@@ -170,7 +170,7 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body no-padding">
-            <table *ngFor="let reserva of reservas  | paginate: {itemsPerPage:5, currentPage: p, totalItems : total};" class="table table-striped table-hover">
+            <table *ngFor="let reserva of reservas  | paginate: {itemsPerPage:8, currentPage: p, totalItems : total}; let i = index " class="table table-striped table-hover">
               <thead>
                 <tr>
                   <th style="width: 10px">#</th>
@@ -190,8 +190,8 @@
                   <td>{{reserva.pessoas}}</td>
                   <td>{{reserva.dataDaCadastro}}</td>
                   <td>{{reserva.hora}}</td>
-                  <td><button type="button" class="btn btn-xs btn-info btn-update" data-toggle="modal" data-target="#modal-update"><i
-                        class="fa fa-pencil"></i> Editar</button>&nbsp;<button type="button" class="btn btn-xs btn-danger btn-delete"><i
+                  <td><button type="button" class="btn btn-xs btn-info btn-update" [routerLink]="['/admin/reservas', reserva.id]"   data-toggle="modal" data-target="#modal-update"><i
+                        class="fa fa-pencil"></i> Editar</button>&nbsp;<button type="button" class="btn btn-xs btn-danger btn-delete" (click)="deletar(reserva.id, i)"><i
                         class="fa fa-trash"></i> Excluir</button></td>
                 </tr>
               </tbody>
@@ -279,11 +279,11 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="inputNameUpdate">Nome</label>
-                <input type="text" class="form-control" id="inputNameUpdate" name="name">
+                <input type="text" class="form-control"  [(ngModel)]="reserva.nome"  #reservaValidate="ngModel" id="inputNameUpdate" name="name">
               </div>
               <div class="form-group">
                 <label for="inputEmailUpdate">E-mail</label>
-                <input type="email" class="form-control" id="inputEmailUpdate" name="email">
+                <input type="email" class="form-control"  [(ngModel)]="reserva.email" #emailValidate="ngModel"  id="inputEmailUpdate" name="email">
               </div>
               <div class="form-group">
                 <label for="inputPeopleUpdate">Pessoas</label>
@@ -298,16 +298,16 @@
               </div>
               <div class="form-group">
                 <label for="inputDateUpdate">Data</label>
-                <input type="date" id="inputDateUpdate" name="date" class="form-control">
+                <input type="date" id="dataDaCadastro" [(ngModel)]="reserva.dataDaCadastro "  #dateValidate="ngModel"  name="dataDaCadastro" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputTimeUpdate">Hora</label>
-                <input type="time" id="inputTimeUpdate" name="time" class="form-control">
+                <input type="time" id="inputTimeUpdate" name="time"  [(ngModel)]="reserva.hora "  #horaValidate="ngModel"  class="form-control">
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-info">Salvar</button>
+              <button type="submit" class="btn btn-info" (click)="saveReserva()">Salvar</button>
             </div>
           </form>
         </div>

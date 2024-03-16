@@ -2,7 +2,7 @@
 
 export class Reserva {
 
-    id!: Number;
+    id!: number;
     nome!: String;
     email!: String;
     pessoas!: String;
