@@ -37,7 +37,7 @@ BootStrap
 TypeScript
 
 # Deploy
-[https://restaurante-em-angular.vercel.app/](https://restaurante-em-angular-iota.vercel.app/)
+https://restaurante-em-angular.vercel.app/
 
 Para acessar Login/Admin
 
