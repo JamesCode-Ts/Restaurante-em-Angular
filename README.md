@@ -37,7 +37,13 @@ BootStrap
 TypeScript
 
 # Deploy
-https://restaurante-em-angular.vercel.app/
+[https://restaurante-em-angular.vercel.app/](https://restaurante-em-angular-iota.vercel.app/)
+
+Para acessar Login/Admin
+
+login: admin@gmail.com
+
+senha: admin
 
 # Back-end
 
