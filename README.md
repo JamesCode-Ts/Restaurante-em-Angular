@@ -66,9 +66,10 @@ sudo apt install npm
 npm install
 ```
 6. Este comando utiliza o NPM para instalar globalmente (`-g`) o Angular CLI.
+```bash
 sudo npm -g i @angular/cli
-
-7. Este comando é usado para iniciar a aplicação. 
+```
+8. Este comando é usado para iniciar a aplicação. 
 
 ```bash
 npm start
