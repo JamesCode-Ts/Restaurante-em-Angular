@@ -28,15 +28,55 @@ Cadastramento de Menu
 
 ![menu-restaurante](https://github.com/JamesCode-Ts/Restaurante-em-Angular/assets/63932833/5d079800-d7a6-48a3-9e8a-ad72b7a64344)
 
-Tecnologias Utilizadas:
+### Tecnologias Utilizadas:
 
-Angular 8
+- Angular 8
 
-BootStrap
+- BootStrap
 
-TypeScript
+- TypeScript
 
-# Deploy
+
+#### Para usar este projeto, siga estas etapas:
+
+1. Clone este repositório para o seu computador:
+
+```bash
+git clone git@github.com:JamesCode-Ts/Restaurante-em-Angular.git
+```
+
+2. Baixa o script de instalação do Node.js
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+```
+
+3. Instala o Node.js (Node Package Manager)
+```bash
+sudo apt install nodejs
+```
+
+4. Instala o NPM
+```bash
+sudo apt install npm
+```
+
+5. Instala todas as dependências listadas no arquivo `package.json`. 
+```bash
+npm install
+```
+6. Este comando utiliza o NPM para instalar globalmente (`-g`) o Angular CLI.
+sudo npm -g i @angular/cli
+
+7. Este comando é usado para iniciar a aplicação. 
+
+```bash
+npm start
+```
+
+
+
+## - Deploy
 https://restaurante-em-angular.vercel.app/
 
 Para acessar Login/Admin
@@ -45,6 +85,6 @@ login: admin@gmail.com
 
 senha: admin
 
-# Back-end
+## - Back-end
 
 https://github.com/JamesCode-Ts/API-Restaurante-
