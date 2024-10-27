@@ -37,8 +37,8 @@ export const appRouters: Routes = [
   {path : 'reserva', component : ReservaComponent},
   {path : 'admin/login', component : LoginComponent},
   
-  {path : 'admin/user', component : UserComponent},
-  {path : 'admin/user/:id', component : UserComponent},
+  {path : 'admin/user', component : UserComponent,canActivate: [GuardiaoGuard]},
+  {path : 'admin/user/:id', component : UserComponent,canActivate: [GuardiaoGuard]},
   {path : 'admin/menu', component : MenuAdminComponent, canActivate: [GuardiaoGuard]},
   {path : 'admin/menu/:id', component : MenuAdminComponent, canActivate: [GuardiaoGuard]},
   {path : 'admin/index', component : IndexComponent, canActivate: [GuardiaoGuard]},
