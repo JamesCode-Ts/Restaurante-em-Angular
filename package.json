@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve ",
-    "build": "curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt-get install -y nodejs && NODE_OPTIONS=--openssl-legacy-provider ng build --output-path=docs",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build --output-path=docs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
