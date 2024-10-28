@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
 
-    if (localStorage.getItem('token') == null) {
+    if (localStorage.getItem('token') !== null) { // alterar pra ==
       this.router.navigate(['admin/login']);
     }
 
