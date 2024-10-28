@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     
    
-    if(localStorage.getItem('token') !== null && 
-    localStorage.getItem('token')!.toString().trim() !== null ){
+    if(localStorage.getItem('token') == null && 
+    localStorage.getItem('token')!.toString().trim() == null ){
     
    
     this.router.navigate(['admin/index']);
