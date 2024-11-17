@@ -39,13 +39,13 @@ export const appRouters: Routes = [
   
   {path : 'admin/user', component : UserComponent},
   {path : 'admin/user/:id', component : UserComponent},
-  {path : 'admin/menu', component : MenuAdminComponent, canActivate: [GuardiaoGuard]},
-  {path : 'admin/menu/:id', component : MenuAdminComponent, canActivate: [GuardiaoGuard]},
+  {path : 'admin/menu', component : MenuAdminComponent},
+  {path : 'admin/menu/:id', component : MenuAdminComponent},
   {path : 'admin/index', component : IndexComponent},
-  {path : 'admin/contatos', component : ContatoAdminComponent, canActivate: [GuardiaoGuard]},
-  {path : 'admin/reservas', component : ReservaAdminComponent, canActivate: [GuardiaoGuard]},
-  {path : 'admin/reservas/:id', component : ReservaAdminComponent, canActivate: [GuardiaoGuard]},
-  {path : 'admin/emails', component : EmailComponent, canActivate: [GuardiaoGuard]}
+  {path : 'admin/contatos', component : ContatoAdminComponent},
+  {path : 'admin/reservas', component : ReservaAdminComponent},
+  {path : 'admin/reservas/:id', component : ReservaAdminComponent},
+  {path : 'admin/emails', component : EmailComponent}
 
 
 
